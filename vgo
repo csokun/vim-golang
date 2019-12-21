@@ -1,4 +1,5 @@
 #!/bin/bash
+IMAGE=csokun/vim-golang:latest
 CONTAINER_NAME=vgo
 # default setting
 GOPATH=$HOME/go
@@ -12,7 +13,7 @@ if [ "$(docker inspect -f '{{.State.Running}}' $CONTAINER_NAME 2> /dev/null )" =
         --workdir /workspace/src                \
         --network=host                          \
         --rm                                    \
-        csokun/vim-golang:latest
+        $IMAGE
 else
     docker attach $CONTAINER_NAME
 fi
