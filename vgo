@@ -1,0 +1,18 @@
+#!/bin/bash
+CONTAINER_NAME=vgo
+# default setting
+GOPATH=$HOME/go
+if [ ! -d "$GOPATH" ]; then
+    mkdir -p $GOPATH
+fi
+if [ "$(docker inspect -f '{{.State.Running}}' $CONTAINER_NAME 2> /dev/null )" == "" ]; then
+    docker run -it --name $CONTAINER_NAME       \
+        --user $UID                             \
+        -v $GOPATH:/workspace/src               \
+        --workdir /workspace/src                \
+        --network=host                          \
+        --rm                                    \
+        csokun/vim-golang:latest
+else
+    docker attach $CONTAINER_NAME
+fi
