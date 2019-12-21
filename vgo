@@ -9,7 +9,7 @@ fi
 if [ "$(docker inspect -f '{{.State.Running}}' $CONTAINER_NAME 2> /dev/null )" == "" ]; then
     docker run -it --name $CONTAINER_NAME       \
         --user $UID                             \
-        -v $GOPATH:/workspace/src               \
+        -v $GOPATH:/workspace                   \
         --workdir /workspace/src                \
         --network=host                          \
         --rm                                    \
