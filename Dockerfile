@@ -5,7 +5,7 @@ ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 ENV TERM xterm-256color
 
-RUN apt-get update && apt-get install tmux git curl rsync inotify-tools ca-certificates -y --no-install-recommends \
+RUN apt-get update && apt-get install tmux git curl rsync ripgrep inotify-tools ca-certificates -y --no-install-recommends \
     # config nodejs source
     && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     # configure yarn source
