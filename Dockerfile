@@ -1,4 +1,4 @@
-FROM golang:1.13-buster
+FROM golang:1.14-buster
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV LANG C.UTF-8
